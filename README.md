@@ -1,0 +1,2 @@
+# lint-typeorm-rules
+
