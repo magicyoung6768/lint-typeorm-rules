@@ -1,0 +1,17 @@
+{
+  "name": "lint-typeorm-rules",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "oxlint",
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.14.5",
+    "oxlint": "^1.50.0",
+    "unplugin-auto-import": "^21.0.0",
+    "unplugin-vue-components": "^31.0.0",
+  }
+}

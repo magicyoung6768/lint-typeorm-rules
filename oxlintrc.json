@@ -1,0 +1,11 @@
+{
+  "jsPlugins": ["./typeorm-ali-plugin.js"],
+  "rules": {
+    "typeorm-ali/no-find-without-select": "warn",
+    "typeorm-ali/no-getmany-first": "error",
+    "typeorm-ali/no-raw-string-sql": "error",
+    "typeorm-ali/no-deep-skip": "warn",
+    "typeorm-ali/no-n-plus-one": "error",
+    "typeorm-ali/no-excessive-join": "warn"
+  }
+}
