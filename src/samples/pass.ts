@@ -1,6 +1,6 @@
 import { DataSource, In } from "typeorm";
 
-// 合规写法：不应触发 typeorm-ali 插件的任何 error/warn
+// 合规写法：不应触发 typeorm-rule 插件的任何 error/warn
 async function clean(
   dataSource: DataSource,
   orderRepo: any,
@@ -15,7 +15,8 @@ async function clean(
     .where("o.userId = :uid", { uid: userId })
     .getMany();
 
-  // 取单条用 findOne（自动 LIMIT 1）
+  // 取单条用 findOne（自动 LIMIT 1） typeorm 的`findOne` 内部固定`take: 1` ，生成 SQL 自带 LIMIT 1；`exists` 同样带 LIMIT 1
+
   const one = await orderRepo.findOne({ where: { id: 1 } });
 
   // 参数化查询
@@ -32,7 +33,7 @@ async function clean(
   // 批量 IN 替代 N+1
   const orders = await orderRepo.find({ where: { userId } });
   const ids = orders.map((o: any) => o.id);
-  const items = await itemRepo.find({ where: { orderId: In(ids) });
+  const items = await itemRepo.find({ where: { orderId: In(ids) } });
 
   // 合理 JOIN（≤3 表）
   const r = await orderRepo.createQueryBuilder("o")

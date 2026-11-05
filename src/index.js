@@ -6,9 +6,9 @@ import noNPlusOne from "./rules/no-n-plus-one.js";
 import noExcessiveJoin from "./rules/no-excessive-join.js";
 
 // oxlint JS 插件入口（与 ESLint 插件 API 兼容）。
-// 规则全名为 <meta.name>/<rule-key>，如 typeorm-ali/no-n-plus-one
+// 规则全名为 <meta.name>/<rule-key>，如 typeorm-rule/no-n-plus-one
 const plugin = {
-  meta: { name: "typeorm-ali" },
+  meta: { name: "typeorm-rule" },
   rules: {
     "no-find-without-select": noFindWithoutSelect,
     "no-getmany-first": noGetmanyFirst,
