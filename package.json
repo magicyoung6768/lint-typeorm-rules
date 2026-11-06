@@ -1,18 +1,25 @@
 {
   "name": "lint-typeorm-rules",
   "private": true,
+  "description": "TypeORM ORM rules packaged as an oxlint JS plugin",
   "type": "module",
+  "main": "./typeorm-rule-plugin.js",
+  "exports": {
+    ".": "./typeorm-rule-plugin.js"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
     "lint": "oxlint",
-  },
-  "dependencies": {
+    "lint:fix": "oxlint --fix",
+    "lint:ci": "oxlint --deny-warnings",
+    "lint:samples": "oxlint src/samples"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.14.5",
     "oxlint": "^1.50.0",
-    "typeorm": "^1.0.0",
-    "unplugin-auto-import": "^21.0.0",
-    "unplugin-vue-components": "^31.0.0",
+    "typeorm": "^1.0.0"
   }
 }
